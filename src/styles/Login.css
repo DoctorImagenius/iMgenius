@@ -1,0 +1,148 @@
+.lmain {
+    max-width: 80%;
+    margin: auto;
+    background: linear-gradient(to right, rgb(1, 0, 73), rgb(0, 0, 0));
+    padding: 10px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-family: "Segoe Print";
+    color: rgb(0, 119, 255);
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+    user-select: none;
+    margin-top: 7%;
+}
+.licon {
+    margin-top: 30px;
+    color: #ffee00;
+    font-size: 40px;
+}
+.btn {
+    height: 50px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: rgb(0, 217, 255);
+    background-color: #060058;
+    user-select: none;
+    transition: 0.2s;
+    font-family: "Segoe Print";
+}
+.btn:hover {
+    box-shadow: inset 1px 1px 3px #6c7bff, 2px 2px 3px rgb(0, 76, 175);
+}
+.inp {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 20px;
+    position: relative;
+}
+
+.inp input {
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    color: rgb(0, 217, 255);
+    background-color: #060058;
+}
+.inp:hover {
+    border: 1px solid blue;
+    border-radius: 10px;
+}
+.inp .fa-eye-slash {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: blue;
+}
+.fa-eye {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: red;
+}
+
+.reset {
+    cursor: pointer;
+    color: rgb(0, 217, 255);
+    user-select: none;
+    transition: 0.2s;
+    font-family: "Segoe Print";
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.reset:hover {
+    color: red;
+}
+.reset img {
+    width: 400px;
+    height: 50px;
+    align-self: center;
+}
+
+@media screen and (min-width: 100px) and (max-width: 700px) {
+    .lmain h1 {
+        font-size: large;
+    }
+    .lmain {
+        max-width: 100%;
+        margin: auto;
+        background: linear-gradient(
+            to right,
+            rgb(1, 0, 73),
+            rgb(0, 0, 0),
+            rgb(1, 0, 73)
+        );
+        padding: 10px;
+        border-radius: 10px;
+        margin-top: 5vh;
+        gap: 10px;
+    }
+
+    .btn {
+        height: 40px;
+        width: 90%;
+        margin: 0px;
+        color: rgb(0, 217, 255);
+        background: linear-gradient(
+            to right,
+            rgb(1, 0, 73),
+            rgb(0, 66, 141),
+            rgb(1, 0, 73)
+        );
+    }
+    .btn:hover {
+        box-shadow: none;
+    }
+
+    .inp {
+        display: flex;
+        align-items: center;
+        width: 90%;
+        margin: 0px;
+        position: relative;
+    }
+    .inp input {
+        width: 100%;
+        height: 30px;
+        font-size: 16px;
+    }
+    .reset {
+        transition: 0s;
+        margin-bottom: 10px;
+    }
+}

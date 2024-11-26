@@ -1,0 +1,10 @@
+.error {
+    color: red;
+    font-size: xx-large;
+    font-family: "Segoe Print";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}

@@ -1,0 +1,506 @@
+.cmain {
+    margin: 20px;
+    border-radius: 40px;
+    background: linear-gradient(
+        to right,
+        rgb(1, 0, 73),
+        rgb(0, 0, 0),
+        rgb(1, 0, 73)
+    );
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+}
+.cmain:hover {
+    box-shadow: inset 1px 1px 3px rgb(34, 130, 255), 2px 2px 5px rgb(0, 0, 0);
+}
+.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.topLeft {
+    text-align: center;
+    max-height: 500px;
+    max-width: 50%;
+    margin: 20px;
+    border-radius: 30px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.topLeft:hover {
+    transform: scale(1.03);
+}
+.responsiveImg {
+    max-width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+.topRight {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+.crossBar {
+    max-width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.DateBar {
+    color: rgb(0, 119, 255);
+    text-shadow: 1px 1px 3px rgb(0, 0, 0);
+    margin: 7px 10px;
+    user-select: none;
+}
+.crossBar div {
+    background-color: #060058;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.crossBar div:hover {
+    box-shadow: inset 1px 1px 3px #6c7bff, 2px 2px 3px rgb(0, 0, 0);
+}
+.titleBar {
+    width: 100%;
+    height: 70%;
+    text-align: center;
+    align-content: center;
+    color: rgb(0, 119, 255);
+    overflow: hidden;
+    font-family: "Segoe Script";
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+    transition: 0.5s;
+    font-size: xx-large;
+    user-select: none;
+}
+.titleBar:hover {
+    transform: scale(1.05);
+}
+.clike {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    max-width: 100%;
+}
+.clike h5 {
+    color: skyblue;
+}
+.details {
+    background-color: #060058;
+    height: 50px;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    cursor: pointer;
+    color: rgb(0, 217, 255);
+    user-select: none;
+    transition: 0.2s;
+    font-family: "Segoe Print";
+}
+.details:hover {
+    box-shadow: inset 1px 1px 3px #6c7bff, 2px 2px 3px rgb(0, 0, 0);
+}
+.like {
+    background-color: #060058;
+    height: 50px;
+    width: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.like:hover {
+    box-shadow: inset 1px 1px 3px #6c7bff, 2px 2px 3px rgb(0, 0, 0);
+}
+.likeIcon {
+    font-size: xx-large;
+}
+.bottom {
+    border: 1px solid rgb(0, 47, 255);
+    margin: 0px 20px 20px 20px;
+    text-align: center;
+    font-size: 20px;
+    color: rgb(0, 119, 255);
+
+    padding: 10px;
+    border-radius: 30px;
+    font-family: "Segoe Print";
+    display: flex;
+    flex-direction: column;
+}
+.links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.links a {
+    text-decoration: none;
+    color: red;
+    border: 1px solid rgb(0, 47, 255);
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 15px;
+    margin: 10px;
+    font-family: "MV Boli";
+}
+.links a:hover {
+    background-color: rgb(0, 10, 53);
+}
+.imain {
+    color: red;
+    font-family: "Segoe Print";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to right, rgb(0, 0, 0), rgb(1, 0, 73));
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s;
+    border: 1px solid blue;
+}
+.wait {
+    align-self: center;
+    color: blue;
+    text-align: center;
+}
+.cancel {
+    color: blue;
+    background-color: #060058;
+    color: rgb(0, 217, 255);
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 10px 0px;
+}
+.cancel:hover {
+    border: 1px solid blue;
+}
+.delete {
+    color: blue;
+    background-color: #060058;
+    color: rgb(0, 217, 255);
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 10px 0px;
+}
+.delete:hover {
+    border: 1px solid red;
+    color: red;
+}
+.load {
+    width: 250px;
+    height: 60px;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+.titleUp {
+    color: rgb(255, 238, 0);
+    text-shadow: 2px 2px rgb(0, 0, 0);
+    align-self: center;
+}
+.detailUp {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    outline: none;
+    color: rgb(0, 217, 255);
+    background-color: #060058;
+}
+.detailUp:hover {
+    border: 1px solid blue;
+    border-radius: 10px;
+}
+.linksUp {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-self: center;
+    margin: 10px;
+    justify-content: flex-start;
+    gap: 5px;
+}
+.heading {
+    color: blue;
+    align-self: flex-start;
+}
+.box {
+    height: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    outline: none;
+    color: rgb(0, 217, 255);
+    background-color: #060058;
+    margin-bottom: 5px;
+}
+.box:hover {
+    border: 1px solid blue;
+    border-radius: 10px;
+}
+.updateBtn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+.canelPost {
+    color: blue;
+    background-color: #060058;
+    color: rgb(0, 217, 255);
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 3px 10px;
+    width: 38%;
+}
+.canelPost:hover {
+    border: 1px solid blue;
+}
+.updatePost {
+    color: blue;
+    background-color: #060058;
+    color: rgb(0, 217, 255);
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 3px 10px;
+    width: 38%;
+}
+.updatePost:hover {
+    border: 1px solid rgb(255, 251, 0);
+    color: rgb(255, 251, 0);
+}
+
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+    .titleBar {
+        font-size: x-large;
+    }
+    .DateBar {
+        font-size: small;
+    }
+    .links a {
+        max-width: 90%;
+        overflow: hidden;
+    }
+}
+
+@media screen and (min-width: 100px) and (max-width: 700px) {
+    .cmain {
+        margin: 15px;
+        margin-bottom: 5px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: inset 1px 1px 3px rgb(34, 130, 255),
+            1px 1px 5px rgb(0, 157, 248);
+    }
+    .cmain:hover {
+        box-shadow: inset 1px 1px 3px rgb(34, 130, 255),
+            1px 1px 5px rgb(0, 157, 248);
+    }
+    .top {
+        display: flex;
+        flex-direction: column;
+    }
+    .topLeft {
+        text-align: center;
+        max-height: 100%;
+        max-width: 100%;
+        margin: 10px;
+        border-radius: 15px;
+    }
+    .topLeft:hover {
+        transform: none;
+    }
+    .responsiveImg {
+        max-width: 100%;
+        height: 100%;
+        border-radius: 15px;
+    }
+
+    .topRight {
+        width: 100%;
+        margin: 0px;
+    }
+    .crossBar {
+        border-radius: 20px;
+        padding: 5px 5px;
+        margin: 10px;
+        background-color: #040041;
+        height: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+    }
+    .DateBar {
+        font-size: small;
+    }
+    .crossBar div {
+        margin: 0px;
+    }
+    .titleBar {
+        order: -1;
+        font-size: x-large;
+    }
+    .clike {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 0px 10px 5px 10px;
+        padding: 0px 5px;
+        gap: 5px;
+    }
+    .details {
+        align-self: center;
+        background-color: #060058;
+        height: 40px;
+        border-radius: 10px;
+        margin: 0px;
+    }
+    .like {
+        align-self: center;
+        height: 40px;
+        width: 50px;
+    }
+    .likeIcon {
+        font-size: x-large;
+    }
+    .bottom {
+        border: 1px solid rgb(0, 47, 255);
+        margin: 0px 10px 10px 10px;
+        text-align: center;
+        font-size: 15px;
+        color: rgb(0, 153, 255);
+        padding: 10px;
+        border-radius: 15px;
+        font-family: "Segoe Print";
+        display: flex;
+        flex-direction: column;
+    }
+    .links {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .links a {
+        max-width: 80%;
+        overflow: hidden;
+        text-decoration: none;
+        color: red;
+        border: 1px solid rgb(0, 47, 255);
+        border-radius: 20px;
+        padding: 2px 5px;
+        font-size: 12px;
+        margin: 5px;
+        font-family: "MV Boli";
+    }
+    .imain h3 {
+        font-size: large;
+        text-align: center;
+    }
+
+    .imain {
+        background: linear-gradient(
+            to right,
+            rgb(0, 0, 0),
+            rgb(1, 0, 73),
+            rgb(0, 0, 0)
+        );
+        padding: 10px;
+        margin: 0px;
+        gap: 5px;
+        border: 1px solid rgb(0, 102, 255);
+    }
+    .updateBtn {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .canelPost {
+        background-color: #0077ff;
+        color: rgb(0, 217, 255);
+        text-shadow: 2px 2px 5px rgb(0, 0, 0);
+        text-align: center;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 5px 10px;
+    }
+    .updatePost {
+        background-color: #0077ff;
+        color: rgb(0, 217, 255);
+        border-radius: 5px;
+        padding: 3px 10px;
+        align-content: center;
+    }
+
+    .cancel {
+        background-color: #0077ff;
+        color: rgb(0, 217, 255);
+        border-radius: 5px;
+        margin: 10px 0px;
+        padding: 3px 10px;
+
+    }
+    .delete {
+        background-color: #0077ff;
+        color: rgb(0, 217, 255);
+        padding: 3px 10px;
+        border-radius: 5px;
+    }
+    .delete:hover {
+        border: 1px solid blue;
+    }
+    .box {
+        height: 15px;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid blue;
+        color: rgb(0, 217, 255);
+        background-color: #002e63;
+        margin-bottom: 5px;
+    }
+}
