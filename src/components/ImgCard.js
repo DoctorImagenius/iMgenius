@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../styles/ImgCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+    faCircleRight,
+    faCommenting,
     faRecycle,
     faThumbsUp,
     faTrash,
@@ -23,6 +25,7 @@ export default function ImgCard({
     like = 0,
     links = [],
     skill = "",
+    comments = [],
 }) {
     let [isLike, setIsLike] = useState(false);
     let [likes, setLikes] = useState(like);
@@ -37,6 +40,10 @@ export default function ImgCard({
     let [newLink2, setNewLink2] = useState("");
     let [newLink3, setNewLink3] = useState("");
     let [newLinks, setNewLinks] = useState(links);
+    let [showComments, setShowComments] = useState(false);
+    let [newComments, setNewComments] = useState(comments);
+    let [newName, setNewName] = useState("");
+    let [newComment, setNewComment] = useState("");
 
     useEffect(() => {
         if (links[0] === undefined || links[0] === null || links[0] === "") {
@@ -58,8 +65,8 @@ export default function ImgCard({
         setNewDetails(details);
         setLikes(like);
         setNewLinks(links);
-    }, [id, title, details, like, links]);
-
+        setNewComments(comments);
+    }, [id, title, details, like, links, comments]);
 
     async function updateLike(l) {
         try {
@@ -178,6 +185,57 @@ export default function ImgCard({
         } catch (e) {
             setShowUp(false);
             notify("Can't Update right now!", "warning");
+        }
+    }
+
+    function capitalizeFirstLetter(word) {
+        if (!word) return "";
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    }
+
+    async function writeComment() {
+        if (!newName) {
+            notify("Please write your name", "warning");
+            return;
+        }
+        if (!newComment) {
+            notify("Please write your comment", "warning");
+            return;
+        }
+        try {
+            let obj = {
+                name: newName,
+                comment: newComment,
+            };
+            let jsonString = JSON.stringify(obj);
+            let d = newComments;
+            d.push(jsonString);
+            setNewComments(d);
+            setNewName("");
+            setNewComment("");
+            notify("Comment added successfully", "success");
+            const docRef = doc(db, "iMageniusData", id);
+            await updateDoc(docRef, {
+                comments: d,
+            });
+        } catch (e) {
+            notify("Can't comment right now!", "warning");
+        }
+    }
+
+    async function deleteComment(key) {
+        try {
+            let afterDelComment = newComments.filter((v, i) => {
+                return key !== i;
+            });
+            setNewComments(afterDelComment);
+            notify("Comment deleted successfully", "success");
+            const docRef = doc(db, "iMageniusData", id);
+            await updateDoc(docRef, {
+                comments: afterDelComment,
+            });
+        } catch (e) {
+            notify("Can't comment right now!", "warning");
         }
     }
 
@@ -309,18 +367,12 @@ export default function ImgCard({
                 <div className="topRight">
                     <div className="crossBar">
                         <h3 className="DateBar">{date}</h3>
-                            <div title="Update" onClick={updateComp} className="up">
-                                <FontAwesomeIcon
-                                    icon={faRecycle}
-                                    color="#48ff00"
-                                />
-                            </div>
-                            <div title="Delete" onClick={deleteComp} className="de">
-                                <FontAwesomeIcon
-                                    icon={faTrash}
-                                    color="#ff0000"
-                                />
-                            </div>
+                        <div title="Update" onClick={updateComp} className="up">
+                            <FontAwesomeIcon icon={faRecycle} color="#48ff00" />
+                        </div>
+                        <div title="Delete" onClick={deleteComp} className="de">
+                            <FontAwesomeIcon icon={faTrash} color="#ff0000" />
+                        </div>
                     </div>
                     <h1 className="titleBar">{newTitle}</h1>
                     <div className="clike">
@@ -329,6 +381,16 @@ export default function ImgCard({
                             onClick={() => setShowDetails(!showDetails)}
                         >
                             {showDetails ? "Hide Details" : "Show Details"}
+                        </div>
+                        <div
+                            className="comment"
+                            onClick={() => setShowComments(!showComments)}
+                        >
+                            <FontAwesomeIcon
+                                icon={faCommenting}
+                                className="commentIcon"
+                                title="Comments"
+                            />
                         </div>
                         <div className="like" title="Like" onClick={likeBtn}>
                             <FontAwesomeIcon
@@ -359,6 +421,62 @@ export default function ImgCard({
                         </div>
                     </div>
                 </>
+            ) : (
+                ""
+            )}
+
+            {showComments ? (
+                <div className="mainCom">
+                    <div className="label">Comments</div>
+                    {newComments.map((v, i) => {
+                        return (
+                            <div key={i} className="commSec">
+                                <div className="comComm">
+                                    <span className="comName">
+                                        {capitalizeFirstLetter(
+                                            JSON.parse(v).name
+                                        )}
+                                        {" : "}
+                                    </span>
+                                    {JSON.parse(v).comment}
+                                </div>
+                                {isLogin ? (
+                                    <div
+                                        className="delCom"
+                                        onClick={() => deleteComment(i)}
+                                    >
+                                        Delete
+                                    </div>
+                                ) : (
+                                    ""
+                                )}
+                            </div>
+                        );
+                    })}
+                    <div className="postComment">
+                        <input
+                            placeholder="Name"
+                            className="namecom"
+                            value={newName}
+                            onChange={(e) => setNewName(e.target.value)}
+                        ></input>
+                        <input
+                            placeholder="Write a comment..."
+                            className="wcom"
+                            value={newComment}
+                            onChange={(e) => setNewComment(e.target.value)}
+                        ></input>
+                        <div
+                            className="postCommentNew"
+                            onClick={() => writeComment()}
+                        >
+                            <FontAwesomeIcon
+                                icon={faCircleRight}
+                                className="commIcon"
+                            />
+                        </div>
+                    </div>
+                </div>
             ) : (
                 ""
             )}

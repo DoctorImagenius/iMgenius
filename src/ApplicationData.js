@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { serviceId, templateId, publicKey } from "./PasswordsAndKeys";
 import { db } from "./PasswordsAndKeys";
 import { collection, getDocs } from "firebase/firestore";
-import md5 from 'md5';
+import md5 from "md5";
 
 const AppContext = createContext();
 export const AppProvider = ({ children }) => {
@@ -15,7 +15,7 @@ export const AppProvider = ({ children }) => {
     let [emailServiceId, seteMailServiceId] = useState(serviceId);
     let [emailTemplateId, eteMailTemplateId] = useState(templateId);
     let [emailPublicKey, seteMailPublicKey] = useState(publicKey);
-    let [isLogin, setIsLogin] = useState(false); // false
+    let [isLogin, setIsLogin] = useState(false);
     let [iBeautyFilter, setIBeautyFilter] = useState("");
     let [data, setData] = useState([]);
     let [homeLoading, setHomeLoading] = useState(false);
@@ -38,6 +38,12 @@ export const AppProvider = ({ children }) => {
             querySnapshot.forEach((doc) => {
                 objs.push({ id: doc.id, ...doc.data() });
             });
+            objs.sort((a, b) => {
+                const dateA = new Date(b.date);
+                const dateB = new Date(a.date);
+                return dateA - dateB;
+            });
+            setData(objs);
             let querySnapshot2 = await getDocs(
                 collection(db, "iMageniusPassword")
             );
@@ -45,10 +51,7 @@ export const AppProvider = ({ children }) => {
             querySnapshot2.forEach((doc) => {
                 d = doc.data();
             });
-
             const hashedPassword = md5(d.password);
-
-
             setPassword(hashedPassword);
             setData(objs);
             let localPicsObj = [];

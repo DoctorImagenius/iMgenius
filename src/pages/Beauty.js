@@ -31,6 +31,7 @@ export default function Beauty() {
                         like={obj.likes}
                         img={obj.img}
                         skill={obj.skill}
+                        comments={obj.comments}
                     ></ImgCard>
                 ))
             ) : (

@@ -69,7 +69,7 @@ export default function NewPost() {
             month: "long",
             year: "numeric",
         });
-        
+
         setLoading(true);
         let d = details;
         if (!d || d === "") {
@@ -87,6 +87,7 @@ export default function NewPost() {
                 skill: skill,
                 title: title,
                 links: linkArray,
+                comments: [],
             };
             await addDoc(collection(db, "iMageniusData"), obj);
             let newObjs = [];
