@@ -15,7 +15,7 @@ export const AppProvider = ({ children }) => {
     let [emailServiceId, seteMailServiceId] = useState(serviceId);
     let [emailTemplateId, eteMailTemplateId] = useState(templateId);
     let [emailPublicKey, seteMailPublicKey] = useState(publicKey);
-    let [isLogin, setIsLogin] = useState(true);
+    let [isLogin, setIsLogin] = useState(false);
     let [iBeautyFilter, setIBeautyFilter] = useState("");
     let [data, setData] = useState([]);
     let [homeLoading, setHomeLoading] = useState(false);
