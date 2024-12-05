@@ -177,18 +177,24 @@
         gap: 5px;
     }
     .pmain {
-        width: 80%;
+        width: 90%;
         background: linear-gradient(
             to right,
-            rgb(1, 0, 73),
-            rgb(0, 0, 0),
-            rgb(1, 0, 73)
+            rgb(56, 53, 255),
+            rgb(125, 203, 255),
+            rgb(56, 53, 255)
         );
         padding: 10px;
         font-size: 10px;
         margin-top: 2vh;
         gap: 10px;
-
+    }
+    .picon {
+        color: blue;
+    }
+    .pmain h1 {
+        color: yellow;
+        text-shadow: 2px 2px 5px rgb(0, 0, 0);
     }
     .pinp {
         display: flex;
@@ -200,47 +206,64 @@
     }
     .pinp input {
         width: 100%;
-        height: 30px;
+        height: 20px;
         padding: 10px;
         border-radius: 10px;
+        border: none;
         font-size: 15px;
+        outline: none;
+        color: rgb(0, 217, 255);
+        background: rgb(1, 0, 73);
+    }
+    .pinp:hover {
+        border: 1px solid rgb(0, 217, 255);
     }
     .pinp textarea {
         font-size: 15px;
+        background: rgb(1, 0, 73);
+
     }
 
     .pLinks {
         margin: 0px;
+        
         gap: 10px;
     }
     .pLinks input {
         height: 20px;
         font-size: 15px;
+        background: rgb(1, 0, 73);
+
     }
     .pLinks input:hover {
-        border: 1px solid blue;
+        border: 1px solid rgb(0, 217, 255);
+
         border-radius: 10px;
     }
-    
-.pSkill {
-    margin: 0px;
-    gap: 0px;
-}
-.pSkill select {
-    font-size: 15px;
-    transition: 0s;
-}
-.pbtn {
-    height: 40px;
-    background: linear-gradient(
+
+    .pSkill {
+        margin: 0px;
+        gap: 0px;
+    }
+    .pSkill select {
+        font-size: 15px;
+        transition: 0s;
+    }
+    .pbtn {
+        height: 40px;
+        width: 100%;
+        margin: 0px;
+        color: rgb(0, 217, 255);
+        border-radius: 10px;
+        background: linear-gradient(
             to right,
-            rgb(1, 0, 73),
-            rgb(0, 66, 141),
-            rgb(1, 0, 73)
+            rgb(125, 203, 255),
+            rgb(56, 53, 255),
+            rgb(125, 203, 255)
         );
-    transition: 0s;
-}
-.pbtn:hover {
-    box-shadow: none;
-}
+        margin-bottom: 10px;
+    }
+    .pbtn:hover {
+        box-shadow: none;
+    }
 }

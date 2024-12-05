@@ -68,32 +68,54 @@
 
 @media screen and (min-width: 100px) and (max-width: 700px) {
     .dmain {
-        width: 80%;
+        width: 90%;
         background: linear-gradient(
             to right,
-            rgb(1, 0, 73),
-            rgb(0, 0, 0),
-            rgb(1, 0, 73)
+            rgb(56, 53, 255),
+            rgb(125, 203, 255),
+            rgb(56, 53, 255)
         );
         color: blue;
         padding: 10px;
         border-radius: 10px;
     }
+    .ricon {
+        color: blue;
+    }
+    .dmain h1 {
+        color: yellow;
+        text-shadow: 2px 2px 5px black;
+    }
 
     .dbtn {
         height: 40px;
+        border-radius: 10px;
         background: linear-gradient(
             to right,
-            rgb(1, 0, 73),
-            rgb(0, 66, 141),
-            rgb(1, 0, 73)
+            rgb(125, 203, 255),
+            rgb(56, 53, 255),
+            rgb(125, 203, 255)
         );
         transition: 0s;
-    color: red;
-    margin-top: 10px;
-
+        color: red;
+        margin-top: 10px;
     }
     .dbtn:hover {
         box-shadow: none;
+    }
+    .dSkill select {
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        font-size: 16px;
+        outline: none;
+        color: rgb(0, 217, 255);
+        background-color: #0056b3;
+        color: rgb(0, 217, 255);
+        text-shadow: 2px 2px 5px rgb(0, 0, 0);
+        transition: 0.1s;
+    }
+    .dSkill select:hover {
+        background-color: #0056b3;
     }
 }

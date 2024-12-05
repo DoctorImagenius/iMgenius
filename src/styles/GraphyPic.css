@@ -143,6 +143,17 @@
 }
 
 @media screen and (min-width: 100px) and (max-width: 700px) {
+    .cruMain {
+        border-radius: 10px;
+    }
+    .image {
+        background: linear-gradient(
+            to right,
+            rgb(56, 53, 255),
+            rgb(125, 203, 255),
+            rgb(56, 53, 255)
+        );
+    }
     .section {
         gap: 40vh;
     }
@@ -160,24 +171,24 @@
     }
     .btns div {
         font-size: small;
-        border-radius: 20px;
+        border-radius: 10px;
         padding: 10px 15px;
         margin-top: 0px;
         color: blue;
         box-shadow: none;
         text-align: center;
         align-self: center;
-        width: 80%;
+        width: 85%;
         cursor: pointer;
         background: linear-gradient(
             to right,
-            rgb(1, 0, 73),
-            rgb(0, 66, 141),
-            rgb(1, 0, 73)
+            rgb(56, 53, 255),
+            rgb(125, 203, 255),
+            rgb(56, 53, 255)
         );
         transition: 0s;
-        color: rgb(0, 217, 255);
-        text-shadow: 2px 2px 5px rgb(0, 0, 0);
+        color: blue;
+        text-shadow: none;
     }
     .btns div:hover {
         box-shadow: 0px 0px 10px rgb(255, 208, 0);
@@ -199,8 +210,7 @@
     .article {
         border-radius: 10px;
         font-size: small;
-        box-shadow: inset 1px 1px 3px rgb(34, 130, 255),
-            3px 3px 5px -2px rgb(223, 208, 0);
+            box-shadow: inset 1px 1px 3px #d7e4ff, 1px 1px 3px rgb(29, 191, 255);
     }
     .mainHeading {
         font-size: 20px;

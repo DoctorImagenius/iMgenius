@@ -21,14 +21,19 @@
 }
 @media screen and (min-width: 100px) and (max-width: 700px) {
     .lcmain {
-        width: 80%;
-        background: linear-gradient(to left,rgb(1, 0, 73), rgb(0, 0, 0), rgb(1, 0, 73));
+        width: 85%;
+        background: linear-gradient(
+            to right,
+            rgb(56, 53, 255),
+            rgb(125, 203, 255),
+            rgb(56, 53, 255)
+        );
         margin: 20px auto;
-        border-radius: 20px;
+        border-radius: 10px;
         display: flex;
         flex-direction: row;
         justify-content: center;
         padding: 20px;
-        gap: 20px;
+        gap: 15px;
     }
 }

@@ -395,7 +395,7 @@ export default function ImgCard({
                         <div className="like" title="Like" onClick={likeBtn}>
                             <FontAwesomeIcon
                                 icon={faThumbsUp}
-                                color={isLike ? "#48ff00" : "#0091ff"}
+                                color={isLike ? "#48ff00" : "#00d9ff"}
                                 className="likeIcon"
                             />
                         </div>

@@ -40,24 +40,33 @@
 }
 @media screen and (min-width: 100px) and (max-width: 700px) {
     .omain {
-        width: 80%;
+        width: 90%;
         background: linear-gradient(
             to right,
-            rgb(1, 0, 73),
-            rgb(0, 0, 0),
-            rgb(1, 0, 73)
+            rgb(56, 53, 255),
+            rgb(125, 203, 255),
+            rgb(56, 53, 255)
         );
         color: blue;
         padding: 10px;
-        margin: 20px auto;
+        margin: 40px auto;
+    }
+    .oicon{
+        color: blue;
+    }
+    .omain h1{
+        color: yellow;
+        text-shadow: 2px 2px 5px black;
     }
     .obtn {
         height: 40px;
+        color: rgb(0, 217, 255);
+        border-radius: 10px;
         background: linear-gradient(
             to right,
-            rgb(1, 0, 73),
-            rgb(0, 66, 141),
-            rgb(1, 0, 73)
+            rgb(125, 203, 255),
+            rgb(56, 53, 255),
+            rgb(125, 203, 255)
         );
         transition: 0s;
         color: red;

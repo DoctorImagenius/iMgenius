@@ -53,22 +53,34 @@
     .amain {
         background: linear-gradient(
             to right,
-            rgb(1, 0, 73),
-            rgb(0, 0, 0),
-            rgb(1, 0, 73)
+            rgb(56, 53, 255),
+            rgb(125, 203, 255),
+            rgb(56, 53, 255)
         );
         color: blue;
         padding: 10px;
+        width: 90%;
+        border-radius: 10px;
+    }
+    .ricon {
+        color: blue;
+    }
+    .amain h1 {
+        color: yellow;
+        text-shadow: 2px 2px 5px rgb(0, 0, 0);
     }
 
     .abtn {
         height: 40px;
         background: linear-gradient(
             to right,
-            rgb(1, 0, 73),
-            rgb(0, 66, 141),
-            rgb(1, 0, 73)
+            rgb(125, 203, 255),
+            rgb(56, 53, 255),
+            rgb(125, 203, 255)
         );
+        width: 100%;
+        color: rgb(0, 217, 255);
+        border-radius: 10px;
     }
     .abtn:hover {
         box-shadow: none;

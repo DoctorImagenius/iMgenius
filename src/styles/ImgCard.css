@@ -460,15 +460,19 @@
     .cmain {
         margin: 10px;
         margin-bottom: 5px;
-        border-radius: 13px;
+        border-radius: 10px;
         display: flex;
         flex-direction: column;
-        box-shadow: inset 1px 1px 3px rgb(34, 130, 255),
-            1px 1px 5px rgb(0, 157, 248);
+        box-shadow: none;
+        background: linear-gradient(
+            to right,
+            rgb(56, 53, 255),
+            rgb(125, 203, 255),
+            rgb(56, 53, 255)
+        );
     }
     .cmain:hover {
-        box-shadow: inset 1px 1px 3px rgb(34, 130, 255),
-            1px 1px 5px rgb(0, 157, 248);
+        box-shadow: none;
     }
     .top {
         display: flex;
@@ -495,10 +499,15 @@
         margin: 0px;
     }
     .crossBar {
-        border-radius: 20px;
+        border-radius: 10px;
         padding: 5px 5px;
         margin: 10px;
-        background-color: #040041;
+        background: linear-gradient(
+            to right,
+            rgb(125, 203, 255),
+            rgb(56, 53, 255),
+            rgb(125, 203, 255)
+        );
         height: none;
         display: flex;
         flex-direction: row;
@@ -509,11 +518,22 @@
     }
     .DateBar {
         font-size: small;
+        color: rgb(0, 217, 255);
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
     }
     .crossBar div {
+        background-color: rgb(39, 108, 255);
+        border-radius: 7px;
         margin: 0px;
+        transition: 0s;
+    }
+    .crossBar div:hover {
+        box-shadow: none;
+        background-color: rgb(0, 81, 255);
+        font-size: 13px;
     }
     .titleBar {
+        color: rgb(255, 238, 0);
         order: -1;
         font-size: x-large;
     }
@@ -527,26 +547,44 @@
     }
     .details {
         align-self: center;
-        background-color: #060058;
+        background: linear-gradient(
+            to right,
+            rgb(125, 203, 255),
+            rgb(56, 53, 255),
+            rgb(125, 203, 255)
+        );
         height: 35px;
         border-radius: 10px;
         margin: 0px;
+        box-shadow: inset 1px 1px 3px #ffffff, 2px 2px 3px rgb(43, 112, 216);
+    }
+    .details:hover {
+        box-shadow: inset 1px 1px 3px #ffffff, 2px 2px 3px rgb(0, 102, 255);
     }
     .like {
         align-self: center;
         height: 35px;
         width: 50px;
         margin: 0px 5px 0px 0px;
+        background-color: #00000000;
+        box-shadow: inset 1px 1px 3px #ffffff, 1px 1px 3px rgb(29, 191, 255);
+        border-radius: 10px;
     }
+    .like:hover {
+        box-shadow: inset 1px 1px 3px #ffffff, 1px 1px 3px rgb(29, 191, 255);
+    }
+
     .likeIcon {
         font-size: x-large;
     }
+
     .bottom {
-        border: 1px solid rgb(0, 47, 255);
+        border: none;
         margin: 0px 10px 10px 10px;
         text-align: left;
         font-size: 15px;
-        color: rgb(0, 153, 255);
+        color: blue;
+        background: rgb(162, 218, 255);
         padding: 10px;
         border-radius: 10px;
         font-family: "Segoe Print";
@@ -611,7 +649,6 @@
         padding: 3px 10px;
         align-content: center;
     }
-
     .cancel {
         background-color: #0077ff;
         color: rgb(0, 217, 255);
@@ -621,7 +658,7 @@
     }
     .delete {
         background-color: #0077ff;
-        color: rgb(0, 217, 255);
+        color: red;
         padding: 3px 10px;
         border-radius: 5px;
     }
@@ -642,12 +679,17 @@
         width: 50px;
         align-self: center;
         transition: 0.1s;
+        background-color: #00000000;
+        box-shadow: inset 1px 1px 3px #ffffff, 1px 1px 3px rgb(29, 191, 255);
+        border-radius: 10px;
+    }
+    .comment:hover {
+        box-shadow: inset 1px 1px 3px #ffffff, 1px 1px 3px rgb(29, 191, 255);
     }
     .commentIcon {
         font-size: x-large;
-        color: rgb(0, 153, 255);
+        color: #00d9ff;
     }
-
     .mainCom {
         user-select: none;
         margin: 0px 10px 10px 10px;
@@ -657,23 +699,29 @@
         padding: 5px 0px 5px 0px;
         border-radius: 10px;
         border: none;
-        background-color: #002e63;
         gap: 7px;
+        background: linear-gradient(
+            to right,
+            rgb(125, 203, 255),
+            rgb(56, 53, 255),
+            rgb(125, 203, 255)
+        );
+    }
+    .label {
+        margin: 5px 0px;
+        text-align: center;
+        text-shadow: none;
+        color: rgb(0, 217, 255);
     }
     .commSec {
         border: none;
         margin: 0px 7px;
         text-align: left;
         font-size: 20px;
-        color: rgb(0, 119, 255);
+        color: rgb(0, 217, 255);
         padding: 5px;
-        border-radius: 8px;
-        background: linear-gradient(
-            to right,
-            rgb(0, 0, 0),
-            rgb(1, 0, 73),
-            rgb(0, 0, 0)
-        );
+        border-radius: 5px;
+        background: rgb(1, 0, 73);
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -693,6 +741,7 @@
         font-size: 15px;
         color: yellow;
     }
+
     .postComment {
         display: flex;
         flex-direction: column;
@@ -705,7 +754,7 @@
         border-radius: 0px;
     }
     .namecom {
-        background-color: rgb(0, 4, 61);
+        background: rgb(1, 0, 73);
         max-width: 100%;
         outline: none;
         color: yellow;
@@ -716,10 +765,10 @@
         padding: 7px;
     }
     .wcom {
-        background-color: rgb(0, 4, 61);
+        background: rgb(1, 0, 73);
         max-width: auto;
         outline: none;
-        color: skyblue;
+        color: rgb(0, 217, 255);
         font-size: 15px;
         height: 15px;
         border: none;
@@ -732,15 +781,17 @@
         width: 100%;
         background: linear-gradient(
             to right,
-            rgb(1, 0, 73),
-            rgb(0, 66, 141),
-            rgb(1, 0, 73)
+            rgb(78, 75, 255),
+            rgb(59, 177, 255),
+            rgb(78, 75, 255)
         );
     }
     .commIcon {
-        color: rgb(0, 217, 255);
+        color: blue;
         align-self: center;
         font-size: 20px;
+        color: blue;
+        border-radius: 50px;
     }
     .commIcon:hover {
         color: rgb(0, 217, 255);
