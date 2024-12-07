@@ -36,7 +36,7 @@ export default function Beauty() {
                 ))
             ) : (
                 <div className="bmain">
-                    There is no post related to {iBeautyFilter}!
+                    There is no post related to {iBeautyFilter} right now!
                 </div>
             )}
         </div>

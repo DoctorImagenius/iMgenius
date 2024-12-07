@@ -21,8 +21,6 @@ export default function Login() {
         setPasswordAttempts,
         forgetAttempts,
         setForgetAttempts,
-        redBorder,
-        setRedBorder,
         passRedBorder,
         setPassRedBorder,
         setIsLogin,
@@ -46,7 +44,6 @@ export default function Login() {
     async function login() {
         setInputValue("");
         if (passwordAttempts >= 3) {
-            setRedBorder(true);
             notify("You are Blocked!", "error");
             return;
         }
@@ -59,14 +56,12 @@ export default function Login() {
             setForgetAttempts(0);
             setPasswordAttempts(0);
             setIsLogin(true);
-            setRedBorder(false);
             setPassRedBorder(false);
             notify("Login Successfully", "success");
         } else {
             setPasswordAttempts(passwordAttempts + 1);
             setPassRedBorder(true);
             if (passwordAttempts === 2) {
-                setRedBorder(true);
                 notify("You are Blocked!", "error");
                 return;
             }
@@ -77,7 +72,6 @@ export default function Login() {
     async function ForgetPassword() {
         setForgetAttempts(forgetAttempts + 1);
         if (forgetAttempts >= 3) {
-            setRedBorder(true);
             notify("Can't Forget Password right now!", "error");
             return;
         }
@@ -118,7 +112,6 @@ export default function Login() {
     return (
         <div
             className="lmain"
-            style={redBorder ? { border: "1px solid red" } : { border: "none" }}
         >
             <FontAwesomeIcon icon={faLock} className="licon"></FontAwesomeIcon>
             <h1>Enter Password to Edit Portfolio</h1>

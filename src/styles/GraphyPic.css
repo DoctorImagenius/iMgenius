@@ -69,7 +69,6 @@
     gap: 20vh;
     margin-top: 3%;
 }
-
 .article {
     border-radius: 10px;
     font-size: large;
@@ -210,13 +209,31 @@
     .article {
         border-radius: 10px;
         font-size: small;
-            box-shadow: inset 1px 1px 3px #d7e4ff, 1px 1px 3px rgb(29, 191, 255);
+        box-shadow: inset 1px 1px 3px #d7e4ff, 1px 1px 3px rgb(0, 31, 99);
+        background: linear-gradient(
+            to left,
+            rgb(64, 179, 255),
+            rgb(56, 53, 255),
+            rgb(64, 179, 255)
+        );
+    }
+    .article:hover {
+        box-shadow: inset 1px 1px 3px #d7e4ff, 1px 1px 3px rgb(0, 31, 99);
     }
     .mainHeading {
         font-size: 20px;
+        background: linear-gradient(
+            to top,
+            rgb(56, 53, 255),
+            rgb(125, 203, 255),
+            rgb(56, 53, 255)
+        );
+        text-shadow: 1px 1px 3px rgb(0, 0, 0);
     }
     .text {
         margin: 20px;
+        color: rgb(209, 255, 255);
+        line-height: 20px;
     }
     .glinks {
         align-items: center;

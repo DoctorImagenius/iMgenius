@@ -10,7 +10,6 @@ export const AppProvider = ({ children }) => {
     let [password, setPassword] = useState("43549bn984tr4");
     let [passwordAttempts, setPasswordAttempts] = useState(0);
     let [forgetAttempts, setForgetAttempts] = useState(0);
-    let [redBorder, setRedBorder] = useState(false);
     let [passRedBorder, setPassRedBorder] = useState(false);
     let [emailServiceId, seteMailServiceId] = useState(serviceId);
     let [emailTemplateId, eteMailTemplateId] = useState(templateId);
@@ -90,8 +89,6 @@ export const AppProvider = ({ children }) => {
                 setPasswordAttempts,
                 forgetAttempts,
                 setForgetAttempts,
-                redBorder,
-                setRedBorder,
                 passRedBorder,
                 setPassRedBorder,
                 headerColor,

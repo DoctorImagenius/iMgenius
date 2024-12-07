@@ -198,7 +198,7 @@ export default function GraphyPic() {
 
                 <div ref={visionRef} className="article">
                     <div className="mainHeading">
-                        <span style={{ color: "span" }}>Vi</span>sion
+                        <span style={{ color: "blue" }}>Vi</span>sion
                     </div>
                     <div className="text">
                         As a lifelong learner and visionary, my aim is to excel

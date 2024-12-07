@@ -75,7 +75,6 @@ export default function Home() {
         } else {
             setFilteredData([]);
             setSearchData("");
-
             notify("No post found!", "warning");
         }
     }
@@ -120,7 +119,7 @@ export default function Home() {
                     );
                 })
             ) : (
-                <div className="hmmain">There is no post!</div>
+                <div className="hmmain">Please wait for posts!</div>
             )}
         </div>
     );
