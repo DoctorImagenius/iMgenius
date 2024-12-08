@@ -32,6 +32,7 @@ export default function Beauty() {
                         img={obj.img}
                         skill={obj.skill}
                         comments={obj.comments}
+                        video={obj.video}
                     ></ImgCard>
                 ))
             ) : (
