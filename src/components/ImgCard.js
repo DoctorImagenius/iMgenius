@@ -26,6 +26,7 @@ export default function ImgCard({
     links = [],
     skill = "",
     comments = [],
+    video = "",
 }) {
     let [isLike, setIsLike] = useState(false);
     let [likes, setLikes] = useState(like);
@@ -66,8 +67,9 @@ export default function ImgCard({
         setLikes(like);
         setNewLinks(links);
         setNewComments(comments);
-    }, [id, title, details, like, links, comments]);
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [id]);
+    
     async function updateLike(l) {
         try {
             const docRef = doc(db, "iMageniusData", id);
@@ -116,8 +118,10 @@ export default function ImgCard({
             const docRef = doc(db, "iMageniusData", id);
             await deleteDoc(docRef);
             let filteredData = data.filter((item) => item.id !== id);
-            const fileRef = ref(storage, img);
-            await deleteObject(fileRef);
+            if (video === "") {
+                const fileRef = ref(storage, img);
+                await deleteObject(fileRef);
+            }
             notify("Post Deleted Successfully", "success");
             setData(filteredData);
             setLoading(false);
@@ -239,6 +243,22 @@ export default function ImgCard({
         }
     }
 
+    const getVideoId = (url) => {
+        const urlObj = new URL(url);
+        if (urlObj.hostname === "youtu.be") {
+            let videoId = urlObj.pathname.slice(1);
+            return `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1&controls=1`;
+        } else if (
+            urlObj.hostname === "www.youtube.com" ||
+            urlObj.hostname === "youtube.com"
+        ) {
+            let videoId =
+                urlObj.searchParams.get("v") || urlObj.pathname.split("/")[2];
+            return `https://www.youtube.com/embed/${videoId}?rel=0&controls=1`;
+        }
+        return null;
+    };
+
     return (
         <div className="cmain">
             {showdel ? (
@@ -357,13 +377,26 @@ export default function ImgCard({
             )}
 
             <div className="top">
-                <div className="topLeft">
-                    <img
-                        src={img}
-                        alt="No Wallpaper!"
-                        className="responsiveImg"
-                    />
-                </div>
+                {video !== "" ? (
+                    <div className="topLeftv">
+                        <iframe
+                            className="responsiveVid"
+                            src={getVideoId(video)}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            title="Video"
+                        ></iframe>
+                    </div>
+                ) : (
+                    <div className="topLeft">
+                        <img
+                            src={img}
+                            alt="This post have no wallpaper right now!"
+                            className="responsiveImg"
+                        />
+                    </div>
+                )}
                 <div className="topRight">
                     <div className="crossBar">
                         <h3 className="DateBar">{date}</h3>

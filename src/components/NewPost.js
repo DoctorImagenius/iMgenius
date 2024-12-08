@@ -12,6 +12,7 @@ import { useAppData } from "../ApplicationData";
 
 export default function NewPost() {
     let [img, setImg] = useState(null);
+    let [videoLink, setVideoLink] = useState("");
     let [fileName, setFileName] = useState("");
     let [title, setTitle] = useState("");
     let [details, setDetails] = useState("");
@@ -48,10 +49,6 @@ export default function NewPost() {
             notify("Please write your title", "warning");
             return;
         }
-        if (img === null) {
-            notify("Please choose an image", "warning");
-            return;
-        }
         let linkArray = [];
         if (link1 !== "") {
             linkArray.push(link1);
@@ -69,48 +66,106 @@ export default function NewPost() {
             month: "long",
             year: "numeric",
         });
-
-        setLoading(true);
         let d = details;
         if (!d || d === "") {
             d = "There is no details about this post!";
         }
-        try {
-            const storageRef = ref(storage, `images/${img.name}`);
-            const snapshot = await uploadBytes(storageRef, img);
-            const url = await getDownloadURL(snapshot.ref);
-            let obj = {
-                date: formattedDate,
-                details: d,
-                img: url,
-                likes: 0,
-                skill: skill,
-                title: title,
-                links: linkArray,
-                comments: [],
-            };
-            await addDoc(collection(db, "iMageniusData"), obj);
-            let newObjs = [];
-            const querySnapshot = await getDocs(
-                collection(db, "iMageniusData")
-            );
-            querySnapshot.forEach((doc) => {
-                newObjs.push({ id: doc.id, ...doc.data() });
-            });
-            setData(newObjs);
-            setTitle("");
-            setDetails("");
+
+        if (videoLink === "" && img === null) {
+            notify("Choose an Image or Video Link", "warning"); // nothing selected
             setImg(null);
             setFileName("");
-            setLink1("");
-            setLink2("");
-            setLink3("");
-            setSkill("");
-            notify("Post uploaded successfully...", "success");
-            setLoading(false);
-        } catch (error) {
-            notify("Server is down now!", "warning");
-            setLoading(false);
+            setVideoLink("");
+            return;
+        }
+
+        if (videoLink !== "" && img !== null) {
+            notify("Please select one of them(Image or Video Link)", "warning"); // both selected
+            setImg(null);
+            setFileName("");
+            setVideoLink("");
+            return;
+        }
+        setLoading(true);
+
+        if (img !== null) {
+            try {
+                const storageRef = ref(storage, `images/${img.name}`);
+                const snapshot = await uploadBytes(storageRef, img);
+                const url = await getDownloadURL(snapshot.ref);
+                let obj = {
+                    date: formattedDate,
+                    details: d,
+                    img: url,
+                    likes: 0,
+                    skill: skill,
+                    title: title,
+                    links: linkArray,
+                    comments: [],
+                };
+                await addDoc(collection(db, "iMageniusData"), obj);
+                let newObjs = [];
+                const querySnapshot = await getDocs(
+                    collection(db, "iMageniusData")
+                );
+                querySnapshot.forEach((doc) => {
+                    newObjs.push({ id: doc.id, ...doc.data() });
+                });
+                setData(newObjs);
+                setTitle("");
+                setDetails("");
+                setImg(null);
+                setFileName("");
+                setLink1("");
+                setLink2("");
+                setLink3("");
+                setSkill("");
+                notify("Post uploaded successfully...", "success");
+                setLoading(false);
+            } catch (error) {
+                notify("Server is down now!", "warning");
+                setLoading(false);
+            }
+            return;
+        }
+        
+        if (videoLink !== "") {
+            try {
+                let obj = {
+                    date: formattedDate,
+                    details: d,
+                    img: "",
+                    likes: 0,
+                    skill: skill,
+                    title: title,
+                    links: linkArray,
+                    comments: [],
+                    video: videoLink,
+                };
+                await addDoc(collection(db, "iMageniusData"), obj);
+                let newObjs = [];
+                const querySnapshot = await getDocs(
+                    collection(db, "iMageniusData")
+                );
+                querySnapshot.forEach((doc) => {
+                    newObjs.push({ id: doc.id, ...doc.data() });
+                });
+                setData(newObjs);
+                setVideoLink("");
+                setTitle("");
+                setDetails("");
+                setImg(null);
+                setFileName("");
+                setLink1("");
+                setLink2("");
+                setLink3("");
+                setSkill("");
+                notify("Post uploaded successfully...", "success");
+                setLoading(false);
+            } catch (error) {
+                notify("Server is down now!", "warning");
+                setLoading(false);
+            }
         }
     }
 
@@ -171,6 +226,15 @@ export default function NewPost() {
                     <p className="fileName">Selected Image: {fileName}</p>
                 )}
             </div>
+            <div className="pVideo">
+                <h2>Write video link</h2>
+                <input
+                    type="text"
+                    placeholder="Video Link"
+                    value={videoLink}
+                    onChange={(e) => setVideoLink(e.target.value)}
+                />
+            </div>
             <div className="pSkill">
                 <h2>Select your skill</h2>
                 <select
@@ -180,7 +244,6 @@ export default function NewPost() {
                     <option>My Voice</option>
                     <option>Paintings</option>
                     <option>Writings</option>
-                    <option>Martial Arts</option>
                     <option>Sports</option>
                     <option>Software Skills</option>
                     <option>Hardware Skills</option>
@@ -189,7 +252,8 @@ export default function NewPost() {
                     <option>Projects</option>
                     <option>Inventions</option>
                     <option>Ideas</option>
-                    <option>Others</option>
+                    <option>Funizm</option>
+                    <option>The Knowledge Hub</option>
                 </select>
             </div>
             <div className="pbtn" onClick={post}>

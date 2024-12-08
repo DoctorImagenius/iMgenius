@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Fuse from "fuse.js"; // Import Fuse.js
+import Fuse from "fuse.js";
 
 export default function Home() {
     let { setHeaderColor, data, setData, homeLoading } = useAppData();
@@ -38,13 +38,16 @@ export default function Home() {
             querySnapshot.forEach((doc) => {
                 objs.push({ id: doc.id, ...doc.data() });
             });
+            setData(objs);
             objs.sort((a, b) => {
                 const dateA = new Date(b.date);
                 const dateB = new Date(a.date);
                 return dateA - dateB;
             });
-            setData(objs);
-            setFilteredData(objs);
+            let x = objs.filter((v, i) => {
+                return v.skill !== "Funizm";
+            });
+            setFilteredData(x);
         } catch (e) {
             notify("Server is down! please try after some time...", "info");
         }
@@ -52,7 +55,7 @@ export default function Home() {
 
     useEffect(() => {
         readDataFromDataBase();
-    }, [readDataFromDataBase]);
+    }, [readDataFromDataBase, filteredData]);
 
     useEffect(() => {
         setHeaderColor([true, false, false, false, false]);
@@ -96,6 +99,7 @@ export default function Home() {
                     onClick={searchFilter}
                 />
             </div>
+           
             {homeLoading ? (
                 <>
                     <h3 className="waiting">Wait please!</h3>
@@ -115,6 +119,7 @@ export default function Home() {
                             img={obj.img}
                             skill={obj.skill}
                             comments={obj.comments}
+                            video={obj.video}
                         ></ImgCard>
                     );
                 })

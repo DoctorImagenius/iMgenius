@@ -81,15 +81,6 @@ export default function Header() {
                                         setIBeautyFilter(e.target.textContent)
                                     }
                                 >
-                                    Martial Arts
-                                </div>
-                            </Link>
-                            <Link className="linkOption" to={"/iBeauty"}>
-                                <div
-                                    onClick={(e) =>
-                                        setIBeautyFilter(e.target.textContent)
-                                    }
-                                >
                                     Sports
                                 </div>
                             </Link>
@@ -162,7 +153,16 @@ export default function Header() {
                                         setIBeautyFilter(e.target.textContent)
                                     }
                                 >
-                                    Others
+                                    Funizm
+                                </div>
+                            </Link>
+                            <Link className="linkOption" to={"/iBeauty"}>
+                                <div
+                                    onClick={(e) =>
+                                        setIBeautyFilter(e.target.textContent)
+                                    }
+                                >
+                                    The Knowledge Hub
                                 </div>
                             </Link>
                         </div>
