@@ -56,6 +56,12 @@ export default function Home() {
     useEffect(() => {
         readDataFromDataBase();
     }, [readDataFromDataBase]);
+    useEffect(() => {
+        let x = data.filter((v, i) => {
+            return v.skill !== "Funizm";
+        });
+        setFilteredData(x);
+    }, [data]);
 
     useEffect(() => {
         setHeaderColor([true, false, false, false, false]);
