@@ -55,7 +55,7 @@ export default function Home() {
 
     useEffect(() => {
         readDataFromDataBase();
-    }, [readDataFromDataBase, filteredData]);
+    }, [readDataFromDataBase]);
 
     useEffect(() => {
         setHeaderColor([true, false, false, false, false]);
@@ -63,7 +63,10 @@ export default function Home() {
 
     function searchFilter() {
         if (!searchData.trim()) {
-            setFilteredData(data);
+            let x = data.filter((v, i) => {
+                return v.skill !== "Funizm";
+            });
+            setFilteredData(x);
             notify("Showing all posts", "info");
             return;
         }
