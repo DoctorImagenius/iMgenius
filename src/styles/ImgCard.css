@@ -562,7 +562,7 @@
         color: rgb(255, 238, 0);
         order: -1;
         font-size: x-large;
-        padding: 5px;
+        padding: 5px 0px;
     }
     .clike {
         display: flex;
