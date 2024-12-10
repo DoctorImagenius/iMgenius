@@ -171,6 +171,7 @@ export default function ImgCard({
                 likes: likes,
                 skill: skill,
                 links: array,
+                video: video,
             };
             let d = data.filter((v, i) => {
                 return v.id !== id;
