@@ -45,7 +45,7 @@ export default function Home() {
                 return dateA - dateB;
             });
             let x = objs.filter((v, i) => {
-                return v.skill !== "Funizm";
+                return v.skill !== "Funizm" && v.skill !== "The Knowledge Hub";
             });
             setFilteredData(x);
         } catch (e) {
@@ -58,7 +58,7 @@ export default function Home() {
     }, [readDataFromDataBase]);
     useEffect(() => {
         let x = data.filter((v, i) => {
-            return v.skill !== "Funizm";
+            return v.skill !== "Funizm"  && v.skill !== "The Knowledge Hub";
         });
         setFilteredData(x);
     }, [data]);
@@ -70,7 +70,7 @@ export default function Home() {
     function searchFilter() {
         if (!searchData.trim()) {
             let x = data.filter((v, i) => {
-                return v.skill !== "Funizm";
+                return v.skill !== "Funizm" && v.skill !== "The Knowledge Hub";
             });
             setFilteredData(x);
             notify("Showing all posts", "info");

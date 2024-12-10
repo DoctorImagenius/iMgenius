@@ -245,6 +245,11 @@ export default function ImgCard({
 
     const getVideoId = (url) => {
         const urlObj = new URL(url);
+        
+        if (urlObj.searchParams.has("list")) {
+            let playlistId = urlObj.searchParams.get("list");
+            return `https://www.youtube.com/embed/videoseries?list=${playlistId}&rel=0&autoplay=1&controls=1`;
+        }
         if (urlObj.hostname === "youtu.be") {
             let videoId = urlObj.pathname.slice(1);
             return `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1&controls=1`;
@@ -258,6 +263,7 @@ export default function ImgCard({
         }
         return null;
     };
+    
 
     return (
         <div className="cmain">
@@ -383,7 +389,7 @@ export default function ImgCard({
                             className="responsiveVid"
                             src={getVideoId(video)}
                             frameBorder="0"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                             title="Video"
                         ></iframe>
