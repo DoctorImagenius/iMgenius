@@ -56,9 +56,10 @@ export default function Home() {
     useEffect(() => {
         readDataFromDataBase();
     }, [readDataFromDataBase]);
+
     useEffect(() => {
         let x = data.filter((v, i) => {
-            return v.skill !== "Funizm"  && v.skill !== "The Knowledge Hub";
+            return v.skill !== "Funizm" && v.skill !== "The Knowledge Hub";
         });
         setFilteredData(x);
     }, [data]);
@@ -69,28 +70,32 @@ export default function Home() {
 
     function searchFilter() {
         if (!searchData.trim()) {
-            let x = data.filter((v, i) => {
-                return v.skill !== "Funizm" && v.skill !== "The Knowledge Hub";
-            });
+            let x = data.filter((v) => v.skill !== "Funizm" && v.skill !== "The Knowledge Hub");
             setFilteredData(x);
             notify("Showing all posts", "info");
             return;
         }
+        const searchTokens = searchData.trim().split(/\s+/); 
+        const fuseQuery = searchTokens.map((token) => `'${token}`).join(" | ");
         const fuse = new Fuse(data, {
             keys: ["title"],
             threshold: 0.3,
+            minMatchCharLength: 1,
+            shouldSort: true, 
+            useExtendedSearch: true,
         });
-        const result = fuse.search(searchData).map((res) => res.item);
+        const result = fuse.search(fuseQuery).map((res) => res.item);
         if (result.length > 0) {
             setFilteredData(result);
             setSearchData("");
+            notify(`Results for "${searchData}"`, "info");
         } else {
             setFilteredData([]);
             setSearchData("");
-            notify("No post found!", "warning");
+            notify(`No post found for "${searchData}"`, "warning");
         }
     }
-
+    
     return (
         <div className="hmain">
             <Header></Header>
@@ -108,7 +113,7 @@ export default function Home() {
                     onClick={searchFilter}
                 />
             </div>
-           
+
             {homeLoading ? (
                 <>
                     <h3 className="waiting">Wait please!</h3>
