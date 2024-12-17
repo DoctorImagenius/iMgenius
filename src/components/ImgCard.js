@@ -13,8 +13,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { useAppData } from "../ApplicationData";
 import load from "../images/loading.gif";
 import { db, storage } from "../PasswordsAndKeys";
-import { doc, deleteDoc, updateDoc } from "firebase/firestore";
-import { ref, deleteObject } from "firebase/storage";
+import { doc, deleteDoc, updateDoc} from "firebase/firestore";
+import { ref, deleteObject  } from "firebase/storage";
+
 
 export default function ImgCard({
     id = "",
@@ -33,7 +34,7 @@ export default function ImgCard({
     let [showDetails, setShowDetails] = useState(false);
     let [showdel, setShowDel] = useState(false);
     let [loading, setLoading] = useState(false);
-    let { data, setData, isLogin } = useAppData();
+    let { setData, isLogin } = useAppData();
     let [showUp, setShowUp] = useState(false);
     let [newTitle, setNewTitle] = useState(title);
     let [newDetails, setNewDetails] = useState(details);
@@ -69,13 +70,26 @@ export default function ImgCard({
         setNewComments(comments);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
-    
+
     async function updateLike(l) {
         try {
             const docRef = doc(db, "iMageniusData", id);
             await updateDoc(docRef, {
                 likes: l,
             });
+            let obj1 = {
+                date: date,
+                details: newDetails,
+                title: newTitle,
+                id: id,
+                img: img,
+                likes: l,
+                skill: skill,
+                links: newLinks,
+                video: video,
+                comments:comments
+            };
+            setData(prevData => prevData.map(item => item.id === id ? obj1 : item));
         } catch (e) {
             notify("Can't Like right now!", "warning");
         }
@@ -117,13 +131,12 @@ export default function ImgCard({
         try {
             const docRef = doc(db, "iMageniusData", id);
             await deleteDoc(docRef);
-            let filteredData = data.filter((item) => item.id !== id);
             if (video === "") {
                 const fileRef = ref(storage, img);
                 await deleteObject(fileRef);
             }
             notify("Post Deleted Successfully", "success");
-            setData(filteredData);
+            setData(prevData => prevData.filter(item => item.id !== id));
             setLoading(false);
             setShowDel(false);
         } catch (e) {
@@ -173,11 +186,7 @@ export default function ImgCard({
                 links: array,
                 video: video,
             };
-            let d = data.filter((v, i) => {
-                return v.id !== id;
-            });
-            d.push(obj1);
-            setData(d);
+            setData(prevData => prevData.map(item => item.id === id ? obj1 : item));
             const docRef = doc(db, "iMageniusData", id);
             await updateDoc(docRef, {
                 title: newTitle,

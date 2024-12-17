@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { serviceId, templateId, publicKey } from "./PasswordsAndKeys";
 import { db } from "./PasswordsAndKeys";
-import { collection, getDocs } from "firebase/firestore";
+//import { collection, getDocs, onSnapshot} from "firebase/firestore";
+import { collection, getDocs} from "firebase/firestore";
 import md5 from "md5";
 
 const AppContext = createContext();
@@ -71,6 +72,19 @@ export const AppProvider = ({ children }) => {
     useEffect(() => {
         readDataFromDataBase();
     }, []);
+
+    // useEffect(() => {
+    //     const unsubscribe = onSnapshot(
+    //       collection(db, 'iMageniusData'),
+    //       (snapshot) => {
+    //         console.log("Fetching real-time data");
+    //       },
+    //       (error) => {
+    //         console.log("Error fetching real-time data");
+    //       }
+    //     );
+    //     return () => unsubscribe();
+    //   }, []);
 
     return (
         <AppContext.Provider
