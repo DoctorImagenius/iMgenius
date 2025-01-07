@@ -307,7 +307,7 @@ export default function GraphyPic() {
                             </Link>
 
                             <a
-                                href="https://www.linkedin.com/in/haroon-malik-7a1a152b8/"
+                                href="https://www.linkedin.com/in/haroon-babar-imagenius1001/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -317,7 +317,7 @@ export default function GraphyPic() {
                                 />
                             </a>
                             <a
-                                href="https://www.instagram.com/dr.imagenius/"
+                                href="https://www.instagram.com/imagenius1001"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
