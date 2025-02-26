@@ -113,15 +113,14 @@ export default function GraphyPic() {
                     </div>
                     <div className="text">
                         I began my formal education in government schools, where
-                        I completed my studies until the 10th grade with an 85%
-                        mark. I then proceeded to Superior College for my FSc,
-                        achieving 87.2%. Additionally, I pursued religious
+                        I completed my studies until the 10th class with A grade
+                        . I then proceeded to Superior College for my FSc with also A grade. Additionally, I pursued religious
                         studies in a madrassa for Hifz-e-Quran, further
                         expanding my learning beyond conventional education.
                         Currently, I am enrolled at the University of Central
                         Punjab, studying Computer Science in a full 100%
                         scholarship program. I have completed 4 semesters with a
-                        4.0 CGPA. Initially, I studied{" "}
+                        3.98/4.0 CGPA. Initially, I studied{" "}
                         <div className="span">Computer Science</div>, but due to
                         my interest in both hardware and software, I transferred
                         to the <div className="span">Robotics program</div>,
