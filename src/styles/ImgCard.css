@@ -283,10 +283,10 @@
 .bottom {
     border: 1px solid rgb(0, 47, 255);
     margin: 0px 20px 20px 20px;
-    text-align: center;
+    text-align: left;
     font-size: 20px;
     color: rgb(0, 119, 255);
-    padding: 10px;
+    padding:  10px 20px 10px 20px;
     border-radius: 30px;
     font-family: "Segoe Print";
     display: flex;

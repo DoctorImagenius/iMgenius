@@ -455,7 +455,7 @@ export default function ImgCard({
             {showDetails ? (
                 <>
                     <div className="bottom">
-                        {newDetails}
+                        <div dangerouslySetInnerHTML={{ __html: newDetails }} />
                         <div className="links">
                             {newLinks.map((link, index) => (
                                 <a
