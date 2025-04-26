@@ -56,14 +56,14 @@ export default function LinkCard() {
             />
 
             <a
-		href="https://www.linkedin.com/in/haroon-babar-imagenius1001/"
+                href="https://www.linkedin.com/in/haroon-babar-imagenius1001/"
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 <FontAwesomeIcon icon={faLinkedin} className="icicon" />
             </a>
             <a
-		href="https://www.instagram.com/imagenius1001"
+                href="https://www.instagram.com/imagenius1001"
                 target="_blank"
                 rel="noopener noreferrer"
             >
