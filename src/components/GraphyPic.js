@@ -89,9 +89,7 @@ export default function GraphyPic() {
                     <div className="text">
                         My name is <div className="span">Haroon Babar</div>, and{" "}
                         <div className="span">Imagenius</div> is my tech
-                        name(combination of imagenation and genius) and I am a
-                        22-year-old from Nankana Sahib, And now I am in Park
-                        View City. With a passion for technology and a diverse
+                        name(combination of imagenation and genius). With a passion for technology and a diverse
                         skill set, I have continuously pursued knowledge and
                         personal growth. I have completed my education in
                         various fields, from government schools to higher
