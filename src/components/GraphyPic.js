@@ -110,31 +110,7 @@ export default function GraphyPic() {
                         <span style={{ color: "blue" }}>Edu</span>cation
                     </div>
                     <div className="text">
-                        I began my formal education in government schools, where
-                        I completed my studies until the 10th class with A grade
-                        . I then proceeded to Superior College for my FSc with also A grade. Additionally, I pursued religious
-                        studies in a madrassa for Hifz-e-Quran, further
-                        expanding my learning beyond conventional education.
-                        Currently, I am enrolled at the University of Central
-                        Punjab, studying Computer Science in a full 100%
-                        scholarship program. I have completed 4 semesters with a
-                        3.98/4.0 CGPA. Initially, I studied{" "}
-                        <div className="span">Computer Science</div>, but due to
-                        my interest in both hardware and software, I transferred
-                        to the <div className="span">Robotics program</div>,
-                        which aligns more closely with my career goals. In
-                        addition to my formal education, I am passionate about
-                        self-learning and have explored numerous topics and
-                        technologies, including electronics, mechatronics,
-                        electrical engineering, and software development. I have
-                        gained proficiency in various programming languages(C,
-                        C++, Python, Java, HTML, CSS, JavaScript, PHP, Node.js,
-                        Arduino C, MicroPython, Assembly language),
-                        frameworks(ReactJS(Web App Development), React Native
-                        (Mobile App Development), Express.js, Electron(Desktop
-                        App Development), Tkinter, Kivy, MongoDB, SQL,
-                        Firebase), and tools that allow me to work across
-                        hardware and software domains.
+                        This section is in underdevelopment...
                     </div>
                 </div>
 
